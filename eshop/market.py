@@ -69,33 +69,34 @@ def contactUs_page():
 
 @app.route('/subscription_plans')
 def subscriptionPlans_page():
-    plans = [
-    {
-        'name': 'Basic Plan',
-        'price': 9.99,
-        'duration': '1 month',
-        'features': ['Basic features', 'Limited content access'],
-    },
-    {
-        'name': 'Standard Plan',
-        'price': 19.99,
-        'duration': '3 months',
-        'features': ['Standard features', 'Full content access', 'HD streaming'],
-    },
-    {
-        'name': 'Premium Plan',
-        'price': 29.99,
-        'duration': '6 months',
-        'features': ['Premium features', 'Ultra HD streaming', 'Offline downloads'],
-    },
-    {
-        'name': 'Family Plan',
-        'price': 39.99,
-        'duration': '1 year',
-        'features': ['All Premium features', 'Simultaneous streaming on multiple devices'],
-    },
-    ]
-    return render_template('subscription_plans.html', plans=plans)
+    # plans = [
+    # {
+    #     'name': 'Basic Plan',
+    #     'price': 9.99,
+    #     'duration': '1 month',
+    #     'features': ['Basic features', 'Limited content access'],
+    # },
+    # {
+    #     'name': 'Standard Plan',
+    #     'price': 19.99,
+    #     'duration': '3 months',
+    #     'features': ['Standard features', 'Full content access', 'HD streaming'],
+    # },
+    # {
+    #     'name': 'Premium Plan',
+    #     'price': 29.99,
+    #     'duration': '6 months',
+    #     'features': ['Premium features', 'Ultra HD streaming', 'Offline downloads'],
+    # },
+    # {
+    #     'name': 'Family Plan',
+    #     'price': 39.99,
+    #     'duration': '1 year',
+    #     'features': ['All Premium features', 'Simultaneous streaming on multiple devices'],
+    # },
+    # ]
+    # return render_template('subscription_plans.html', plans=plans)
+    pass
 
 @app.route('/cart')
 def cart_page():
@@ -107,26 +108,26 @@ def login_page():
 
 @app.route('/Sign Up')
 def signUp_page():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+    # if request.method == 'POST':
+    #     username = request.form['username']
+    #     password = request.form['password']
 
-        #Connect to MySQL database
-        mysql = mysql.connector.connect(
-            host = app.config['MYSQL_HOST'],
-            user = app.config['MYSQL_USER'],
-            database =  app.config['MYSQL_DB']
-        )
+    #     #Connect to MySQL database
+    #     mysql = mysql.connector.connect(
+    #         host = app.config['MYSQL_HOST'],
+    #         user = app.config['MYSQL_USER'],
+    #         database =  app.config['MYSQL_DB']
+    #     )
 
-        # Execute SQL query to insert user's credentials
-        cursor = mysql.cursor()
-        insert_query = "INSERT INTO users (username, password) VALUES (%s, %s)"
-        cursor.execute(insert_query, (username, password))
-        mysql.commit()  # Commit changes to the database
-        cursor.close()
-        mysql.close()
+    #     # Execute SQL query to insert user's credentials
+    #     cursor = mysql.cursor()
+    #     insert_query = "INSERT INTO users (username, password) VALUES (%s, %s)"
+    #     cursor.execute(insert_query, (username, password))
+    #     mysql.commit()  # Commit changes to the database
+    #     cursor.close()
+    #     mysql.close()
 
-        return 'Signup successfull'
+    #     return 'Signup successfull'
     return render_template('Sign Up/signUp.html')
 
 
