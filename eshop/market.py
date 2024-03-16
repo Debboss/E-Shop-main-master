@@ -1,23 +1,9 @@
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///login.db'
 
-#Initialize the database
-db = SQLAlchemy(app)
-
-#Create db model
-class login(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200), nullable=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
-
-    #Create a function to return a string when we add something
-    def __repr__(self):
-        return '<Name %r>' % self.id
 
 @app.route('/')
 @app.route('/home')
