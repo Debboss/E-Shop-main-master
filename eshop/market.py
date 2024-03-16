@@ -14,9 +14,9 @@ class login(db.Model):
     name = db.Column(db.String(200), nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
-#Create a function to return a string when we add something
-def __repr__(self):
-    return '<Name %r>' % self.id
+    #Create a function to return a string when we add something
+    def __repr__(self):
+        return '<Name %r>' % self.id
 
 @app.route('/')
 @app.route('/home')
@@ -118,7 +118,6 @@ def login_page():
 @app.route('/Sign Up')
 def signUp_page():
     return render_template('Sign Up/signUp.html')
-
 
 
 if __name__ == '__main__':
